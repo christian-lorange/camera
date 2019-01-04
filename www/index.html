@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Capture Me</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+<link rel="stylesheet" href="css/Style.css">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<script type="text/javascript" charset="utf-8">
+
+    var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready",onDeviceReady,false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+    }
+
+    // Called when a photo is successfully retrieved
+    //
+    function onPhotoDataSuccess(imageData) {
+      // Uncomment to view the base64-encoded image data
+      // console.log(imageData);
+
+      // Get image handle
+      //
+      var smallImage = document.getElementById('smallImage');
+
+      // Unhide image elements
+      //
+      smallImage.style.display = 'block';
+
+      // Show the captured photo
+      // The in-line CSS rules are used to resize the image
+      //
+      smallImage.src = "data:image/jpeg;base64," + imageData;
+
+      document.getElementById("smallImage").innerHTML = imageData;
+    }
+
+    // Called when a photo is successfully retrieved
+    //
+    function onPhotoURISuccess(imageURI) {
+      // Uncomment to view the image file URI
+      // console.log(imageURI);
+
+      // Get image handle
+      //
+      var largeImage = document.getElementById('smallImage');
+
+      // Unhide image elements
+      //
+      largeImage.style.display = 'block';
+
+      // Show the captured photo
+      // The in-line CSS rules are used to resize the image
+      //
+      largeImage.src = imageURI;
+    }
+
+    // A button will call this function
+    //
+    function capturePhoto() {
+      // Take picture using device camera and retrieve image as base64-encoded string
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        destinationType: destinationType.FILE_URI,
+		saveToPhotoAlbum : true,
+		});
+    }
+
+    // A button will call this function
+    //
+    function capturePhotoEdit() {
+      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 20, allowEdit: true,
+        destinationType: destinationType.FILE_URI,
+		saveToPhotoAlbum : true,
+		});
+    }
+
+    // A button will call this function
+    //
+    function getPhoto(source) {
+      // Retrieve image file location from specified source
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        destinationType: destinationType.FILE_URI,
+        sourceType: source });
+    }
+
+    // Called if something bad happens.
+    //
+    function onFail(message) {
+      alert('Failed because: ' + message);
+    }
+
+    </script>
+  </head>
+  <body>
+<div data-role="page">
+  <div data-role="header" data-position="fixed" class="ui-header ui-bar-a ui-header-fixed slidedown" role="banner">
+  <h1>Capture Me</h1>
+  </div>
+  <div data-role="main" class="ui-content" id="main">
+<center>
+<div class="grid">
+    <div class="block">
+      <div class="ui-bar ui-bar-a"  style="height:100%">Camera</div>
+    </div>
+    <div class="block">
+      <div class="ui-bar ui-bar-a" style="height:100%">Crop
+      </div>
+    </div>
+    <div class="block">
+      <div class="ui-bar ui-bar-a" style="height:100%">Gallery
+      </div>
+    </div>
+</div>
+<div class="grid">
+    <div class="block">
+      <div class="ui-bar ui-bar-a"  style="height:100%"><a id="img" href="" onclick="capturePhoto();"><center><i class="fa fa-camera fa-5x"></i></center></a></div>
+    </div>
+    <div class="block">
+      <div class="ui-bar ui-bar-a" style="height:100%">
+
+        <a href="" id="img"  onclick="capturePhotoEdit();">
+          <center>
+            <i class="fa fa-crop fa-5x"></i>
+          </center>
+        </a>
+      </div>
+    </div>
+    <div class="block">
+      <div class="ui-bar ui-bar-a" style="height:100%">
+
+        <a id="img" href="" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">
+          <center><i class="fa fa-picture-o fa-5x"></i></center>
+        </a>
+      </div>
+    </div>
+</div>
+</center>
+    <center><img style="display:none;width:50%;height:50%;" id="smallImage" src="" /></center>
+    <center><img style="display:none; width:50%;height:50%;" id="largeImage" src="" /></center>
+  </div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  </body>
+</html>
