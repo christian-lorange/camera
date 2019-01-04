@@ -45,6 +45,6 @@
     <plugin name="cordova-plugin-geolocation"  />
     <gap:plugin name="cordova-plugin-ezar-snapshot" source="npm"/>
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
-    <plugin name="Screenshot" value="org.apache.cordova.Screenshot"/>
+    <gap:plugin name="cordova-plugin-screenshotv2" source="npm"/>
 
 </widget>
