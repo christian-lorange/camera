@@ -18,11 +18,8 @@
  */
 var app = {
     // Application Constructor
-    count: 0,
     initialize: function() {
         this.bindEvents();
-        app.counterSpan = document.getElementById('counter');
-
     },
     // Bind Event Listeners
     //
@@ -30,15 +27,6 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        app.locationCheck = window.setInterval(function(){
-            navigator.geolocation.getCurrentPosition(app.gotPosition);
-        },1000);
-
-    },
-    gotPosition: function(position){
-        app.receivedEvent('geoloc');
-        app.count += 1;
-        app.counterSpan.textContent = app.count;
     },
     // deviceready Event Handler
     //
@@ -59,3 +47,5 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+app.initialize();
