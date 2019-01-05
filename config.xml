@@ -20,6 +20,7 @@
     <engine name="ios"  />
 
     <preference name="permissions"                value="none"/>
+    <preference name="CrosswalkAnimatable" value="true" />
 
 
     <plugin name="cordova-plugin-whitelist" spec="1" />
