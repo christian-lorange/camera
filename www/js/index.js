@@ -16,6 +16,7 @@ var app = {
       document.getElementById('originalPicture').src = 'data:image/jpeg;base64,' + imgData;
 
       document.getElementById('originalPicture').style ="display:block"
+      document.getElementById('frame').style ="display:block"
 
 
           setTimeout(function(){
@@ -26,12 +27,13 @@ var app = {
           console.log('ok',res.filePath);
           }
         });
-        }, 2000);
+        }, 500);
 
           setTimeout(function(){
     //do what you need here
         document.getElementById('originalPicture').style ="display:none"
-        }, 4000);
+        document.getElementById('frame').style ="display:none"
+        }, 1000);
 
     });
   },
