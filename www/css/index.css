@@ -61,7 +61,7 @@ div#backgrounddiv {
 }
 
 img.backgroundimg {
-width: window.innerWidth; /*Tells image to fit to width of parent container*/
+width: 100vw; /*Tells image to fit to width of parent container*/
 position: absolute;
 right: 0;
 bottom: 0;
