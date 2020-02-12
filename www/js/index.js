@@ -15,10 +15,16 @@ var app = {
     CameraPreview.takePicture(function(imgData){
       document.getElementById('originalPicture').src = 'data:image/jpeg;base64,' + imgData;
 
-      var nativePathToJpegImage = '/storage/emmc/DCIM/Camera/some_image.jpg';
+        navigator.screenshot.save(function(error,res){
+          if(error){
+          console.error(error);
+          }else{
+          console.log('ok',res.filePath);
+          }
+        });
 
 
-      window.cordova.plugins.imagesaver.saveImageToGallery(nativePathToJpegImage);
+
     });
   },
 

@@ -10,6 +10,6 @@
     <access origin="*" />
 
     <plugin name="cordova-plugin-camera-preview" source="npm" version="0.10.0"/>
-    <plugin name="cordova-plugin-save-image" source="npm"/>
+    <plugin name="com.darktalker.cordova.screenshot" source="npm"/>
 
 </widget>
