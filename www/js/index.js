@@ -17,6 +17,8 @@ var app = {
 
       document.getElementById('originalPicture').style ="display:block"
 
+
+          setTimeout(function(){
         navigator.screenshot.save(function(error,res){
           if(error){
           console.error(error);
@@ -24,11 +26,12 @@ var app = {
           console.log('ok',res.filePath);
           }
         });
+        }, 2000);
 
           setTimeout(function(){
     //do what you need here
         document.getElementById('originalPicture').style ="display:none"
-        }, 2000);
+        }, 4000);
 
     });
   },
