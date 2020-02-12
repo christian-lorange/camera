@@ -15,20 +15,14 @@ var app = {
     CameraPreview.takePicture(function(imgData){
       document.getElementById('originalPicture').src = 'data:image/jpeg;base64,' + imgData;
 
-      var nativePathToJpegImage = '/storage/emmc/DCIM/some_image.jpg'
+      var nativePathToJpegImage = '/storage/emmc/DCIM/some_image.jpg';
 
 
       window.cordova.plugins.imagesaver.saveImageToGallery(nativePathToJpegImage, onSaveImageSuccess, onSaveImageError);
     });
   },
 
-  function onSaveImageSuccess() {
-    console.log('--------------success');
-    }
-                                            
-function onSaveImageError(error) {
-    console.log('--------------error: ' + error);
-    }
+  
 
   switchCamera: function(){
     CameraPreview.switchCamera();
@@ -106,3 +100,12 @@ function onSaveImageError(error) {
 document.addEventListener('deviceready', function(){	
   app.init();
 }, false);
+
+
+function onSaveImageSuccess() {
+    console.log('--------------success');
+    }
+                                            
+function onSaveImageError(error) {
+    console.log('--------------error: ' + error);
+    }
