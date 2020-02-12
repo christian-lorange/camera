@@ -8,7 +8,7 @@ var app = {
 
     setTimeout(function(){
     document.getElementById('backgroundimg').style ="display:block"
-  }, 2000);
+    }, 1000);
   },
 
   stopCamera: function(){
@@ -16,7 +16,7 @@ var app = {
   },
 
   takePicture: function(){
-    CameraPreview.takePicture(function(imgData){
+    CameraPreview.takePicture({width:window.innerWidth, height:window.innerHeight, quality: 85}, function(imgData){
       document.getElementById('originalPicture').src = 'data:image/jpeg;base64,' + imgData;
 
       document.getElementById('originalPicture').style ="display:block"
