@@ -17,6 +17,8 @@ var app = {
 
       document.getElementById('originalPicture').style ="display:block"
       document.getElementById('frame').style ="display:block"
+      document.getElementById('photocontrols').style ="display:none"
+      
 
 
           setTimeout(function(){
@@ -33,6 +35,7 @@ var app = {
     //do what you need here
         document.getElementById('originalPicture').style ="display:none"
         document.getElementById('frame').style ="display:none"
+        document.getElementById('photocontrols').style ="display:block"
         }, 1000);
 
     });
