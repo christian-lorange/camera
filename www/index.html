@@ -7,14 +7,14 @@
   </head>
   <body onload="buttonclick()">
   	<div id="backgrounddiv">
-  		<img src="img/background.png" class="backgroundimg">
+  		<img src="img/background.png" class="backgroundimg" id="backgroundimg" style="display:none;" >
     <div class="controls" id="photocontrols">
       <div class="block" style="display: none">
         <button id="startCameraAboveButton">Start Camera Above HTML</button>
         <button id="stopCameraButton">Stop Camera</button>
       </div>
 
-      <div class="block" style="display: block">
+      <div class="block" style="display: none">
         <p style="margin-top:0px"><button id="startCameraBelowButton">Start Camera Behind HTML</button></p>
 
         <p style="margin-bottom:0px" style="display: none">
@@ -76,9 +76,11 @@
 
     <script>
     	function buttonclick() {
+    		setTimeout(function(){
         var hangoutButton = document.getElementById("startCameraBelowButton");
            hangoutButton.click(); // this will trigger the click event
            console.log("test")
+           }, 2000);
     		};
     </script>
   </body>

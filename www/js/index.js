@@ -5,6 +5,10 @@ var app = {
 
   startCameraBelow: function(){
     CameraPreview.startCamera({x: 0, y: 0, width: window.innerWidth, height:window.innerHeight, camera: "front", tapPhoto: true, previewDrag: false, toBack: true});
+
+    setTimeout(function(){
+    document.getElementById('backgroundimg').style ="display:block"
+    }, 1000);
   },
 
   stopCamera: function(){
