@@ -1,10 +1,10 @@
 var app = {
   startCameraAbove: function(){
-    CameraPreview.startCamera({x: 0, y: 0, width: 375, height: 820, toBack: false, previewDrag: true, tapPhoto: true});
+    CameraPreview.startCamera({x: 0, y: 0, width: window.innerWidth, height: window.innerHeight, toBack: false, previewDrag: true, tapPhoto: true});
   },
 
   startCameraBelow: function(){
-    CameraPreview.startCamera({x: 0, y: 0, width: 375, height:820, camera: "front", tapPhoto: true, previewDrag: false, toBack: true});
+    CameraPreview.startCamera({x: 0, y: 0, width: window.innerWidth, height:window.innerHeight, camera: "front", tapPhoto: true, previewDrag: false, toBack: true});
   },
 
   stopCamera: function(){
