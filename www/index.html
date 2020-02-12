@@ -5,17 +5,19 @@
     <title>cordova-plugin-camera-preview Sample App</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
-  <body>
-    <div class="controls">
-      <div class="block">
+  <body onload="buttonclick()">
+  	<div id="backgrounddiv">
+  		<img src="img/background.png" class="backgroundimg">
+    <div class="controls" id="photocontrols">
+      <div class="block" style="display: none">
         <button id="startCameraAboveButton">Start Camera Above HTML</button>
         <button id="stopCameraButton">Stop Camera</button>
       </div>
 
-      <div class="block">
+      <div class="block" style="display: none">
         <p style="margin-top:0px"><button id="startCameraBelowButton">Start Camera Behind HTML</button></p>
 
-        <p style="margin-bottom:0px">
+        <p style="margin-bottom:0px" style="display: none">
           Color Effect:
           <select id="selectColorEffect">
             <option selected value="none">none</option>
@@ -30,7 +32,7 @@
           </select>
         </p>
 
-        <p style="margin-bottom:0px;">
+        <p style="margin-bottom:0px;" style="display: none">
           Flash Mode:
           <select id="selectFlashMode">
             <option selected value="off">off</option>
@@ -51,24 +53,32 @@
       <div class="block">
         <button id="takePictureButton">Take Picture</button>
         <button id="switchCameraButton">Switch Camera</button>
-        <button id="changePreviewSize">Change Preview Size</button>
+        <button id="changePreviewSize" style="display: none">Change Preview Size</button>
       </div>
-      <div class="block">
+      <div class="block" style="display: none">
         <button id="hideButton">Hide</button>
         <button id="showButton">Show</button>
       </div>
-      <div class="block">
+      <div class="block" style="display: none">
         <button id="showSupportedPictureSizes">Supported Picture Sizes</button>
       </div>
     </div>
 
     <div class="pictures">
       <img id="originalPicture" class="overlay" style="display: none;"/> 
-      <img id="frame" class="frame" src="https://orangehousellc.com/wp-content/uploads/sites/11/2017/04/orangehouse.png" />
+      <img id="frame" class="frame" src="img/backgroundimg.png" style="display:none"/>
     </div>
+</div>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="CameraPreview.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+
+    <script>
+    	function buttonclick() {
+        var hangoutButton = document.getElementById("startCameraBelowButton");
+           hangoutButton.click(); // this will trigger the click event
+    		};
+    </script>
   </body>
 </html>

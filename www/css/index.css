@@ -6,13 +6,15 @@ body{
   text-align: center;
   font-family: sans-serif;
   background-color: transparent;
-  background-image: url('../img/background.png');
-  background-repeat:repeat;
-  background-size: cover;
+  margin: 0;
+  padding: 0;
+  /*background-image: url('../img/background.png');*/
+/*  background-repeat:repeat;*/
+ /* background-size: cover;*/
 }
 .block{
-  padding:.25rem 0;
-  margin:.25rem 0;
+  padding:0 0;
+  margin:0 0;
   background: #00ccff;
   border:1px solid #111;
   border-radius: 3px;
@@ -30,7 +32,7 @@ button{
 
 }
 .controls{
-  margin-top:100%;
+  bottom:10px;
 }
 
 
@@ -51,4 +53,21 @@ button{
   bottom: 30px;
   right: 30px;
   width:50vw;
+}
+
+div#backgrounddiv {
+  width: 100%;
+  height: 100%;
+}
+
+img.backgroundimg {
+width: 100%; /*Tells image to fit to width of parent container*/
+position: absolute;
+right: 0;
+bottom: 0;
+}
+
+#photocontrols {
+  position:   absolute;
+  bottom:   0px;
 }
