@@ -8,7 +8,7 @@ var app = {
 
     setTimeout(function(){
     document.getElementById('backgroundimg').style ="display:block"
-    }, 1000);
+  }, 2000);
   },
 
   stopCamera: function(){
