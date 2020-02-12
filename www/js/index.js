@@ -15,6 +15,8 @@ var app = {
     CameraPreview.takePicture(function(imgData){
       document.getElementById('originalPicture').src = 'data:image/jpeg;base64,' + imgData;
 
+      document.getElementById('originalPicture').style ="display:block"
+
         navigator.screenshot.save(function(error,res){
           if(error){
           console.error(error);
@@ -23,7 +25,10 @@ var app = {
           }
         });
 
-
+          setTimeout(function(){
+    //do what you need here
+        document.getElementById('originalPicture').style ="display:none"
+        }, 2000);
 
     });
   },
